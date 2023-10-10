@@ -14,8 +14,8 @@
     "doctrine/orm": "^2.7",
     "sonata-project/doctrine-orm-admin-bundle": "^4.9",
     "sonata-project/admin-bundle": "^4.22",
-    "symfony/framework-bundle": "^6.1",
-    "symfony/validator": "^6.1",
+    "symfony/framework-bundle": "^6.3",
+    "symfony/validator": "^6.3",
     "twig/twig": "^3.5"
   },
   "require-dev": {
