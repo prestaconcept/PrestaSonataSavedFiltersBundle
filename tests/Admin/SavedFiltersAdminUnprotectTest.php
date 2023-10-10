@@ -25,7 +25,7 @@ final class SavedFiltersAdminUnprotectTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['protected' => false]));
 
         // When
-        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/unprotect");
+        self::$client->request('POST', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/unprotect");
 
         // Then
         self::assertResponseRedirects();
@@ -44,7 +44,7 @@ final class SavedFiltersAdminUnprotectTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['protected' => false]));
 
         // When
-        self::$client->request('PUT', '/presta/sonata-saved-filters/saved-filters/1/unprotect');
+        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/1/unprotect');
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
@@ -63,7 +63,7 @@ final class SavedFiltersAdminUnprotectTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['protected' => false]));
 
         // When
-        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/unprotect");
+        self::$client->request('POST', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/unprotect");
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);
