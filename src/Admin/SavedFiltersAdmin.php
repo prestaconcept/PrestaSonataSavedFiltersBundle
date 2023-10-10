@@ -107,41 +107,38 @@ final class SavedFiltersAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $list): void
     {
-        $list
-            ->add('name')
-            ->add('adminClass')
-            ->add('filters', null, ['inline' => false])
-            ->add('public')
-        ;
+        $list->add('name', null, ['label' => 'saved_filters.field.name']);
+        $list->add('adminClass', null, ['label' => 'saved_filters.field.admin_class']);
+        $list->add('filters', null, ['label' => 'saved_filters.field.filters', 'inline' => false]);
+        $list->add('public', null, ['label' => 'saved_filters.field.public']);
 
         if ($this->isGranted('PROTECT')) {
-            $list->add('protected');
+            $list->add('protected', null, ['label' => 'saved_filters.field.protected']);
         }
 
-        $list
-            ->add(
-                '_action',
-                'actions',
-                [
-                    'actions' => [
-                        'share' => [
-                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_share.html.twig',
-                        ],
-                        'protect' => [
-                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_protect.html.twig',
-                        ],
-                        'unprotect' => [
-                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_unprotect.html.twig',
-                        ],
-                        'subscribe' => [
-                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_subscribe.html.twig',
-                        ],
-                        'unsubscribe' => [
-                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_unsubscribe.html.twig',
-                        ],
+        $list->add(
+            '_action',
+            'actions',
+            [
+                'label' => 'saved_filters.field._action',
+                'actions' => [
+                    'share' => [
+                        'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_share.html.twig',
+                    ],
+                    'protect' => [
+                        'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_protect.html.twig',
+                    ],
+                    'unprotect' => [
+                        'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_unprotect.html.twig',
+                    ],
+                    'subscribe' => [
+                        'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_subscribe.html.twig',
+                    ],
+                    'unsubscribe' => [
+                        'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_unsubscribe.html.twig',
                     ],
                 ],
-            )
-        ;
+            ],
+        );
     }
 }
