@@ -60,8 +60,13 @@ final class SavedFiltersAdmin extends AbstractAdmin
 
     protected function configureRoutes(RouteCollectionInterface $collection): void
     {
-        $collection->clearExcept(['list', 'create']);
+        $collection->clearExcept(['list']);
 
+        $collection->add(
+            name: 'new',
+            pattern: 'new',
+            methods: [Request::METHOD_POST],
+        );
         $collection->add(
             name: 'protect',
             pattern: "{$this->getRouterIdParameter()}/protect",
@@ -87,22 +92,6 @@ final class SavedFiltersAdmin extends AbstractAdmin
             pattern: "{$this->getRouterIdParameter()}/unsubscribe",
             methods: [Request::METHOD_POST],
         );
-    }
-
-    protected function configureDashboardActions(array $actions): array
-    {
-        $actions = parent::configureDashboardActions($actions);
-        unset($actions['create']);
-
-        return $actions;
-    }
-
-    protected function configureActionButtons(array $buttonList, string $action, ?object $object = null): array
-    {
-        $actions = parent::configureActionButtons($buttonList, $action, $object);
-        unset($actions['create']);
-
-        return $actions;
     }
 
     protected function configureListFields(ListMapper $list): void

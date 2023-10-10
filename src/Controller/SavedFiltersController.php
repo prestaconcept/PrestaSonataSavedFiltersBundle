@@ -24,11 +24,10 @@ final class SavedFiltersController extends CRUDController
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
         private readonly SavedFiltersOwnerAccessorInterface $filterSetHolderAccessor,
-        private readonly ValidatorInterface $validator,
     ) {
     }
 
-    public function createAction(Request $request): JsonResponse
+    public function newAction(Request $request, ValidatorInterface $validator): JsonResponse
     {
         $filtersSet = new SavedFilters();
         $filtersSet->setName($request->request->get('name'));
@@ -36,7 +35,7 @@ final class SavedFiltersController extends CRUDController
         $filtersSet->setFilters($request->request->get('filters'));
         $filtersSet->grantOwner($this->owner());
 
-        $violations = $this->validator->validate($filtersSet);
+        $violations = $validator->validate($filtersSet);
         if (count($violations) > 0) {
             return $this->json($violations, Response::HTTP_BAD_REQUEST);
         }
