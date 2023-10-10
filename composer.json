@@ -1,0 +1,43 @@
+{
+  "name": "presta/sonata-saved-filters-bundle",
+  "description": "A Symfony bundle to allow user to save and share filters in Sonata Admin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "PrestaConcept",
+      "email": "contact@prestaconcept.net",
+      "homepage": "https://www.prestaconcept.net"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "doctrine/orm": "^2.7",
+    "sonata-project/doctrine-orm-admin-bundle": "^4.9",
+    "sonata-project/admin-bundle": "^4.22",
+    "symfony/framework-bundle": "^6.1",
+    "symfony/validator": "^6.1",
+    "twig/twig": "^3.5"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "^9.5",
+    "symfony/browser-kit": "^6.3",
+    "symfony/css-selector": "^6.3",
+    "symplify/easy-coding-standard": "^11.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Presta\\SonataSavedFiltersBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Presta\\SonataSavedFiltersBundle\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-main": "0.x-dev"
+    }
+  }
+}

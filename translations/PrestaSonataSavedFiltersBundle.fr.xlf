@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="filters_set.action.create">
+                <source>filters_set.action.create</source>
+                <target>Enregistrer l'état actuel</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.protect">
+                <source>filters_set.action.protect</source>
+                <target>Protéger</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.share">
+                <source>filters_set.action.share</source>
+                <target>Rendre public</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.subscribe">
+                <source>filters_set.action.subscribe</source>
+                <target>Ajouter aux favoris</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.unprotect">
+                <source>filters_set.action.unprotect</source>
+                <target>Retirer la protection</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.unsubscribe">
+                <source>filters_set.action.unsubscribe</source>
+                <target>Retirer des favoris</target>
+            </trans-unit>
+            <trans-unit id="filters_set.breadcrumb.list">
+                <source>filters_set.breadcrumb.list</source>
+                <target>Filtres pré-enregistrés</target>
+            </trans-unit>
+            <trans-unit id="filters_set.button.submit">
+                <source>filters_set.button.submit</source>
+                <target>Enregistrer</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field._action">
+                <source>filters_set.field._action</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.admin_class">
+                <source>filters_set.field.admin_class</source>
+                <target>Admin</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.filters">
+                <source>filters_set.field.filters</source>
+                <target>Filtres</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.name">
+                <source>filters_set.field.name</source>
+                <target>Libellé</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.protected">
+                <source>filters_set.field.protected</source>
+                <target>Protégé ?</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.public">
+                <source>filters_set.field.public</source>
+                <target>Public ?</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.deleted">
+                <source>filters_set.flash.deleted</source>
+                <target>Le filtre pré-enregistré n'étant plus utilisé, il a été supprimé.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.protected">
+                <source>filters_set.flash.protected</source>
+                <target>Le filtre pré-enregistré est désormais protégé.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.shared">
+                <source>filters_set.flash.shared</source>
+                <target>Le filtre pré-enregistré a bien été rendu public.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.subscribed">
+                <source>filters_set.flash.subscribed</source>
+                <target>Le filtre pré-enregistré a bien été ajouté à vos favoris.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.unprotected">
+                <source>filters_set.flash.unprotected</source>
+                <target>Le filtre pré-enregistré n'est plus protégé.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.unsubscribed">
+                <source>filters_set.flash.unsubscribed</source>
+                <target>Le filtre pré-enregistré a bien été retiré de vos favoris.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.name">
+                <source>filters_set.name</source>
+                <target>Filtres pré-enregistrés</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

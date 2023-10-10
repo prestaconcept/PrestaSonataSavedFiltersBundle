@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="filters_set.action.create">
+                <source>filters_set.action.create</source>
+                <target>Save current state</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.protect">
+                <source>filters_set.action.protect</source>
+                <target>Protect</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.share">
+                <source>filters_set.action.share</source>
+                <target>Make public</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.subscribe">
+                <source>filters_set.action.subscribe</source>
+                <target>Add to favorites</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.unprotect">
+                <source>filters_set.action.unprotect</source>
+                <target>Remove protection</target>
+            </trans-unit>
+            <trans-unit id="filters_set.action.unsubscribe">
+                <source>filters_set.action.unsubscribe</source>
+                <target>Remove from favorites</target>
+            </trans-unit>
+            <trans-unit id="filters_set.breadcrumb.list">
+                <source>filters_set.breadcrumb.list</source>
+                <target>Saved filters</target>
+            </trans-unit>
+            <trans-unit id="filters_set.button.submit">
+                <source>filters_set.button.submit</source>
+                <target>Save</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field._action">
+                <source>filters_set.field._action</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.admin_class">
+                <source>filters_set.field.admin_class</source>
+                <target>Admin</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.filters">
+                <source>filters_set.field.filters</source>
+                <target>Filters</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.name">
+                <source>filters_set.field.name</source>
+                <target>Label</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.protected">
+                <source>filters_set.field.protected</source>
+                <target>Protected</target>
+            </trans-unit>
+            <trans-unit id="filters_set.field.public">
+                <source>filters_set.field.public</source>
+                <target>Public</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.deleted">
+                <source>filters_set.flash.deleted</source>
+                <target>The saved filter was not used anymore, and was removed.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.protected">
+                <source>filters_set.flash.protected</source>
+                <target>The saved filter is now protected.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.shared">
+                <source>filters_set.flash.shared</source>
+                <target>The saved filter is now public.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.subscribed">
+                <source>filters_set.flash.subscribed</source>
+                <target>The saved filter was added to your favorites.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.unprotected">
+                <source>filters_set.flash.unprotected</source>
+                <target>The saved filter is now unprotected.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.flash.unsubscribed">
+                <source>filters_set.flash.unsubscribed</source>
+                <target>The saved filter was removed from your favorites.</target>
+            </trans-unit>
+            <trans-unit id="filters_set.name">
+                <source>filters_set.name</source>
+                <target>Saved filters</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

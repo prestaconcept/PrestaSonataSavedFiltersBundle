@@ -1,0 +1,6 @@
+{% extends '@SonataAdmin/standard_layout.html.twig' %}
+
+{% block sonata_admin_content_actions_wrappers %}
+    {{ parent() }}
+    {{ include('@PrestaSonataSavedFilters/admin/filters_set_action.html.twig') }}
+{% endblock %}

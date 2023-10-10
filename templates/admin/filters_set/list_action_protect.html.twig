@@ -1,0 +1,9 @@
+{% trans_default_domain 'PrestaSonataSavedFiltersBundle' %}
+
+{% if not object.protected and admin.hasRoute('protect') and admin.isGranted('PROTECT') %}
+    {% include '@PrestaSonataSavedFilters/admin/filters_set/list_form_action.html.twig' with {
+        url: admin.generateObjectUrl('protect', object),
+        title: 'filters_set.action.protect'|trans,
+        icon: 'fa fa-lock',
+    } only %}
+{% endif %}

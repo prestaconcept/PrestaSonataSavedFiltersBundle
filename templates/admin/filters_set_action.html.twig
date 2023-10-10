@@ -1,0 +1,38 @@
+{% trans_default_domain 'PrestaSonataSavedFiltersBundle' %}
+
+{% if admin is defined and action is defined and action in ['list', 'tree'] and _list_filters_actions is defined and _list_filters_actions is not empty %}
+    {% set filters_sets = get_filters_sets(admin) %}
+    <ul class="nav navbar-nav navbar-right filters-sets">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                {{ 'filters_set.name'|trans }}
+                <span class="badge">{{ filters_sets|length }}</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-scrollable filters-sets-list" role="menu">
+                {% for filters_set in filters_sets %}
+                    <li>
+                        <a href="{{ filters_set.filtersQueryString }}">{{ filters_set.name }}</a>
+                    </li>
+                {% endfor %}
+                <li>
+                    <a href="#" class="create-filters-set">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        {{ 'filters_set.action.create'|trans }}
+                    </a>
+                    <form action="{{ path('presta_sonatafiltersset_filtersset_create') }}" class="hidden">
+                        <div class="form-group col-sm-12">
+                            <label class="sr-only" for="filters_set_name">{{ 'filters_set.field.name'|trans }}</label>
+                            <input type="text" id="filters_set_name" name="filters_set[name]" placeholder="{{ 'filters_set.field.name'|trans }}" class="form-control input-sm" />
+                        </div>
+                        <input type="hidden" id="filters_set_admin_class" name="filters_set[adminClass]" value="{{ admin.class }}" />
+                        <div class="form-group col-sm-12">
+                            <button type="submit" class="btn btn-sm btn-success pull-right">{{ 'filters_set.button.submit'|trans }}</button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
+{% endif %}
