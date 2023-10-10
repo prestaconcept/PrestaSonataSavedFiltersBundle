@@ -1,9 +1,9 @@
 {% trans_default_domain 'PrestaSonataSavedFiltersBundle' %}
 
 {% if app.user in object.ownersWithAccess and admin.hasRoute('unsubscribe') %}
-    {% include '@PrestaSonataSavedFilters/admin/filters_set/list_form_action.html.twig' with {
+    {% include '@PrestaSonataSavedFilters/saved_filters/list_form_action.html.twig' with {
         url: admin.generateObjectUrl('unsubscribe', object),
-        title: 'filters_set.action.unsubscribe'|trans,
+        title: 'saved_filters.action.unsubscribe'|trans,
         icon: 'fas fa-star',
     } only %}
 {% endif %}

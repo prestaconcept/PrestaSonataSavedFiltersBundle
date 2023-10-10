@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace Presta\SonataSavedFiltersBundle\Tests\App;
 
 use Doctrine\ORM\Mapping as ORM;
 

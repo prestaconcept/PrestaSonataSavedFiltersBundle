@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Admin;
+namespace Presta\SonataSavedFiltersBundle\Tests\Admin;
 
 use Presta\SonataSavedFiltersBundle\Entity\SavedFilters;
-use Presta\SonataSavedFiltersBundle\Tests\Admin\AdminTestCase;
 use Presta\SonataSavedFiltersBundle\Tests\App\User;
 use Symfony\Component\HttpFoundation\Response;
 
-final class FilterSetAdminCreateTest extends AdminTestCase
+final class SavedFiltersAdminCreateTest extends AdminTestCase
 {
     public function testCreate(): void
     {
@@ -20,7 +19,7 @@ final class FilterSetAdminCreateTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count([]));
 
         // When
-        self::$client->request('POST', '/presta/sonata-filters-set/filters-set/create', [
+        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/create', [
             'name' => 'My precious filter',
             'adminClass' => User::class,
             'filters' => 'filter%5Busername%5D%5Bvalue%5D=john',
@@ -41,7 +40,7 @@ final class FilterSetAdminCreateTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count([]));
 
         // When
-        self::$client->request('POST', '/presta/sonata-filters-set/filters-set/create', [
+        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/create', [
             'name' => null,
             'adminClass' => null,
             'filters' => null,
@@ -59,7 +58,7 @@ final class FilterSetAdminCreateTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count([]));
 
         // When
-        self::$client->request('POST', '/presta/sonata-filters-set/filters-set/create');
+        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/create');
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);

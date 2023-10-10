@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Admin;
+namespace Presta\SonataSavedFiltersBundle\Tests\Admin;
 
 use Presta\SonataSavedFiltersBundle\Entity\SavedFilters;
-use Presta\SonataSavedFiltersBundle\Tests\Admin\AdminTestCase;
 use Presta\SonataSavedFiltersBundle\Tests\App\User;
 use Symfony\Component\HttpFoundation\Response;
 
-final class FilterSetAdminUnsubscribeTest extends AdminTestCase
+final class SavedFiltersAdminShareTest extends AdminTestCase
 {
-    public function testUnsubscribe(): void
+    public function testShare(): void
     {
         // Given
         self::$doctrine->persist($user = new User('admin'));
@@ -22,48 +21,36 @@ final class FilterSetAdminUnsubscribeTest extends AdminTestCase
         $filter->grantOwner($user);
         self::$doctrine->flush();
         self::$client->loginUser($user);
-        self::assertCount(
-            1,
-            self::$doctrine->getRepository(SavedFilters::class)->findAccessibleForAdmin(User::class, $user),
-        );
+        self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['public' => true]));
 
         // When
-        self::$client->request('PUT', "/presta/sonata-filters-set/filters-set/{$filter->getId()}/unsubscribe");
+        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/share");
 
         // Then
         self::assertResponseRedirects();
         self::$client->followRedirect();
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('.alert-success', 'The saved filter was removed from your favorites.');
-        self::assertCount(
-            0,
-            self::$doctrine->getRepository(SavedFilters::class)->findAccessibleForAdmin(User::class, $user),
-        );
+        self::assertSelectorTextContains('.alert-success', 'The saved filter is now public.');
+        self::assertSame(1, self::$doctrine->getRepository(SavedFilters::class)->count(['public' => true]));
     }
 
-    public function testUnsubscribeNotFound(): void
+    public function testShareNotFound(): void
     {
         // Given
         self::$doctrine->persist($user = new User('admin'));
         self::$doctrine->flush();
         self::$client->loginUser($user);
-        self::assertCount(
-            0,
-            self::$doctrine->getRepository(SavedFilters::class)->findAccessibleForAdmin(User::class, $user),
-        );
+        self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['public' => true]));
 
         // When
-        self::$client->request('PUT', '/presta/sonata-filters-set/filters-set/1/unsubscribe');
+        self::$client->request('PUT', '/presta/sonata-saved-filters/saved-filters/1/share');
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
-        self::assertCount(
-            0,
-            self::$doctrine->getRepository(SavedFilters::class)->findAccessibleForAdmin(User::class, $user),
-        );
+        self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['public' => true]));
     }
 
-    public function testUnsubscribeNotAuthenticated(): void
+    public function testShareNotAuthenticated(): void
     {
         // Given
         self::$doctrine->persist($filter = new SavedFilters());
@@ -71,11 +58,13 @@ final class FilterSetAdminUnsubscribeTest extends AdminTestCase
         $filter->setFilters('filter%5Busername%5D%5Bvalue%5D=john');
         $filter->setAdminClass(User::class);
         self::$doctrine->flush();
+        self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['public' => true]));
 
         // When
-        self::$client->request('PUT', "/presta/sonata-filters-set/filters-set/{$filter->getId()}/unsubscribe");
+        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/share");
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);
+        self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['public' => true]));
     }
 }

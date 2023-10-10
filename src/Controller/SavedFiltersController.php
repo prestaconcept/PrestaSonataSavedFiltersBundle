@@ -66,7 +66,7 @@ final class SavedFiltersController extends CRUDController
 
         $this->entityManager->flush();
 
-        $this->addFlash('success', $this->trans('filters_set.flash.protected'));
+        $this->addFlash('success', $this->trans('saved_filters.flash.protected'));
 
         return $this->redirectToList();
     }
@@ -84,7 +84,7 @@ final class SavedFiltersController extends CRUDController
 
         $this->entityManager->flush();
 
-        $this->addFlash('success', $this->trans('filters_set.flash.unprotected'));
+        $this->addFlash('success', $this->trans('saved_filters.flash.unprotected'));
 
         return $this->redirectToList();
     }
@@ -98,7 +98,7 @@ final class SavedFiltersController extends CRUDController
 
         $this->entityManager->flush();
 
-        $this->addFlash('success', $this->trans('filters_set.flash.shared'));
+        $this->addFlash('success', $this->trans('saved_filters.flash.shared'));
 
         return $this->redirectToList();
     }
@@ -110,7 +110,7 @@ final class SavedFiltersController extends CRUDController
 
         $this->entityManager->flush();
 
-        $this->addFlash('success', $this->trans('filters_set.flash.subscribed'));
+        $this->addFlash('success', $this->trans('saved_filters.flash.subscribed'));
 
         return $this->redirectToList();
     }
@@ -122,7 +122,7 @@ final class SavedFiltersController extends CRUDController
 
         $this->entityManager->flush();
 
-        $this->addFlash('success', $this->trans('filters_set.flash.unsubscribed'));
+        $this->addFlash('success', $this->trans('saved_filters.flash.unsubscribed'));
 
         return $this->redirectToList();
     }

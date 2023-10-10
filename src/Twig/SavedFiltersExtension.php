@@ -23,7 +23,7 @@ final class SavedFiltersExtension extends AbstractExtension
     {
         return [
             new TwigFunction(
-                'get_filters_sets',
+                'get_saved_filters',
                 function (AbstractAdmin $admin) {
                     try {
                         $owner = $this->filterSetHolderAccessor->get();

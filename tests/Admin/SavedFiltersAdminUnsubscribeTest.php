@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Admin;
+namespace Presta\SonataSavedFiltersBundle\Tests\Admin;
 
 use Presta\SonataSavedFiltersBundle\Entity\SavedFilters;
-use Presta\SonataSavedFiltersBundle\Tests\Admin\AdminTestCase;
 use Presta\SonataSavedFiltersBundle\Tests\App\User;
 use Symfony\Component\HttpFoundation\Response;
 
-final class FilterSetAdminSubscribeTest extends AdminTestCase
+final class SavedFiltersAdminUnsubscribeTest extends AdminTestCase
 {
-    public function testSubscribe(): void
+    public function testUnsubscribe(): void
     {
         // Given
         self::$doctrine->persist($user = new User('admin'));
@@ -19,28 +18,29 @@ final class FilterSetAdminSubscribeTest extends AdminTestCase
         $filter->setName('My precious filter');
         $filter->setFilters('filter%5Busername%5D%5Bvalue%5D=john');
         $filter->setAdminClass(User::class);
+        $filter->grantOwner($user);
         self::$doctrine->flush();
         self::$client->loginUser($user);
         self::assertCount(
-            0,
+            1,
             self::$doctrine->getRepository(SavedFilters::class)->findAccessibleForAdmin(User::class, $user),
         );
 
         // When
-        self::$client->request('PUT', "/presta/sonata-filters-set/filters-set/{$filter->getId()}/subscribe");
+        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/unsubscribe");
 
         // Then
         self::assertResponseRedirects();
         self::$client->followRedirect();
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('.alert-success', 'The saved filter was added to your favorites.');
+        self::assertSelectorTextContains('.alert-success', 'The saved filter was removed from your favorites.');
         self::assertCount(
-            1,
+            0,
             self::$doctrine->getRepository(SavedFilters::class)->findAccessibleForAdmin(User::class, $user),
         );
     }
 
-    public function testSubscribeNotFound(): void
+    public function testUnsubscribeNotFound(): void
     {
         // Given
         self::$doctrine->persist($user = new User('admin'));
@@ -52,7 +52,7 @@ final class FilterSetAdminSubscribeTest extends AdminTestCase
         );
 
         // When
-        self::$client->request('PUT', '/presta/sonata-filters-set/filters-set/1/subscribe');
+        self::$client->request('PUT', '/presta/sonata-saved-filters/saved-filters/1/unsubscribe');
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
@@ -62,7 +62,7 @@ final class FilterSetAdminSubscribeTest extends AdminTestCase
         );
     }
 
-    public function testSubscribeNotAuthenticated(): void
+    public function testUnsubscribeNotAuthenticated(): void
     {
         // Given
         self::$doctrine->persist($filter = new SavedFilters());
@@ -72,7 +72,7 @@ final class FilterSetAdminSubscribeTest extends AdminTestCase
         self::$doctrine->flush();
 
         // When
-        self::$client->request('PUT', "/presta/sonata-filters-set/filters-set/{$filter->getId()}/subscribe");
+        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/unsubscribe");
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);

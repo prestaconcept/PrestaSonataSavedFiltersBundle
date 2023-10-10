@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Doctrine\ORM\Events;
-use Presta\SonataSavedFiltersBundle\Admin\FiltersSetAdmin;
+use Presta\SonataSavedFiltersBundle\Admin\SavedFiltersAdmin;
 use Presta\SonataSavedFiltersBundle\Controller\SavedFiltersController;
 use Presta\SonataSavedFiltersBundle\Entity\SavedFilters;
 use Presta\SonataSavedFiltersBundle\Event\RemoveOrphanedSavedFiltersListener;
@@ -18,10 +18,10 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->services()
 
-        ->set(FiltersSetAdmin::class)
+        ->set(SavedFiltersAdmin::class)
         ->tag('sonata.admin', [
             'manager_type' => 'orm',
-            'label' => 'filters_set.name',
+            'label' => 'saved_filters.name',
             'model_class' => SavedFilters::class,
             'controller' => SavedFiltersController::class,
         ])

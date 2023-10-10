@@ -26,10 +26,10 @@ final class SavedFiltersRepository extends ServiceEntityRepository
      */
     public function findAccessibleForAdmin(string $adminClass, SavedFiltersOwnerInterface $owner): array
     {
-        $queryBuilder = $this->createQueryBuilder('filters_set');
+        $queryBuilder = $this->createQueryBuilder('saved_filters');
         $queryBuilder
-            ->innerJoin('filters_set.ownersWithAccess', 'owners')
-            ->where('filters_set.adminClass = :admin_class')
+            ->innerJoin('saved_filters.ownersWithAccess', 'owners')
+            ->where('saved_filters.adminClass = :admin_class')
             ->andWhere('owners = :owner')
             ->setParameter('admin_class', $adminClass)
             ->setParameter('owner', $owner)

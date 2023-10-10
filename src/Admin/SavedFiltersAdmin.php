@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @extends AbstractAdmin<SavedFilters>
  */
-final class FiltersSetAdmin extends AbstractAdmin
+final class SavedFiltersAdmin extends AbstractAdmin
 {
     public function __construct(
         private readonly SavedFiltersOwnerAccessorInterface $filterSetHolderAccessor,
@@ -27,12 +27,12 @@ final class FiltersSetAdmin extends AbstractAdmin
 
     protected function generateBaseRouteName(bool $isChildAdmin = false): string
     {
-        return 'presta_sonatafiltersset_filtersset';
+        return 'presta_sonatasavedfilters_savedfilters';
     }
 
     protected function generateBaseRoutePattern(bool $isChildAdmin = false): string
     {
-        return '/presta/sonata-filters-set/filters-set';
+        return '/presta/sonata-saved-filters/saved-filters';
     }
 
     protected function configureQuery(ProxyQueryInterface $query): ProxyQueryInterface
@@ -125,19 +125,19 @@ final class FiltersSetAdmin extends AbstractAdmin
                 [
                     'actions' => [
                         'share' => [
-                            'template' => '@PrestaSonataSavedFilters/admin/filters_set/list_action_share.html.twig',
+                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_share.html.twig',
                         ],
                         'protect' => [
-                            'template' => '@PrestaSonataSavedFilters/admin/filters_set/list_action_protect.html.twig',
+                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_protect.html.twig',
                         ],
                         'unprotect' => [
-                            'template' => '@PrestaSonataSavedFilters/admin/filters_set/list_action_unprotect.html.twig',
+                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_unprotect.html.twig',
                         ],
                         'subscribe' => [
-                            'template' => '@PrestaSonataSavedFilters/admin/filters_set/list_action_subscribe.html.twig',
+                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_subscribe.html.twig',
                         ],
                         'unsubscribe' => [
-                            'template' => '@PrestaSonataSavedFilters/admin/filters_set/list_action_unsubscribe.html.twig',
+                            'template' => '@PrestaSonataSavedFilters/saved_filters/list_action_unsubscribe.html.twig',
                         ],
                     ],
                 ],

@@ -40,8 +40,8 @@
             event.stopPropagation()
 
             const form = event.currentTarget
-            const nameInput = form.querySelector('input[name="filters_set[name]"]')
-            const adminClassInput = form.querySelector('input[name="filters_set[adminClass]"]')
+            const nameInput = form.querySelector('input[name="saved_filters[name]"]')
+            const adminClassInput = form.querySelector('input[name="saved_filters[adminClass]"]')
             const params = new URLSearchParams(window.location.search || '?filters=reset')
 
             const request = new XMLHttpRequest()
@@ -103,7 +103,7 @@
                         })
 
                         Object.entries(violationsContainers).forEach(([name, element]) => {
-                            const formGroup = form.querySelector(`[name="filters_set[${name}]"]`).parentNode
+                            const formGroup = form.querySelector(`[name="saved_filters[${name}]"]`).parentNode
                             formGroup.classList.add('has-error')
                             formGroup.appendChild(element.root)
                         })

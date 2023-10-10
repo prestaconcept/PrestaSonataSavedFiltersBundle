@@ -56,7 +56,7 @@ final class RemoveOrphanedSavedFiltersListener
         if ($session instanceof Session) {
             $session->getFlashBag()->add(
                 'warning',
-                $this->translator->trans('filters_set.flash.deleted', [], 'PrestaSonataSavedFiltersBundle'),
+                $this->translator->trans('saved_filters.flash.deleted', [], 'PrestaSonataSavedFiltersBundle'),
             );
         }
 

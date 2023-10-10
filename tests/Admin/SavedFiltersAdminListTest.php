@@ -7,7 +7,7 @@ namespace Presta\SonataSavedFiltersBundle\Tests\Admin;
 use Presta\SonataSavedFiltersBundle\Entity\SavedFilters;
 use Presta\SonataSavedFiltersBundle\Tests\App\User;
 
-final class FilterSetAdminListTest extends AdminTestCase
+final class SavedFiltersAdminListTest extends AdminTestCase
 {
     public function testList(): void
     {
@@ -22,7 +22,7 @@ final class FilterSetAdminListTest extends AdminTestCase
         self::$client->loginUser($user);
 
         // When
-        $page = self::$client->request('GET', '/presta/sonata-filters-set/filters-set/list');
+        $page = self::$client->request('GET', '/presta/sonata-saved-filters/saved-filters/list');
 
         // Then
         self::assertResponseIsSuccessful();

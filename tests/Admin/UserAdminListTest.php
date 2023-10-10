@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Admin;
+namespace Presta\SonataSavedFiltersBundle\Tests\Admin;
 
 use App\Article;
 use Presta\SonataSavedFiltersBundle\Entity\SavedFilters;
-use Presta\SonataSavedFiltersBundle\Tests\Admin\AdminTestCase;
 use Presta\SonataSavedFiltersBundle\Tests\App\User;
 
 final class UserAdminListTest extends AdminTestCase

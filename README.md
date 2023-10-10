@@ -33,7 +33,7 @@ Include our action template into the Twig template you configured to be your adm
 
 {% block sonata_admin_content_actions_wrappers %}
     {{ parent() }}
-    {{ include('@PrestaSonataSavedFilters/admin/filters_set_action.html.twig') }}
+    {{ include('@PrestaSonataSavedFilters/saved_filters_action.html.twig') }}
 {% endblock %}
 ```
 
