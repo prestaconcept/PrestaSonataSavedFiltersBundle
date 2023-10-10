@@ -24,6 +24,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'label' => 'saved_filters.name',
             'model_class' => SavedFilters::class,
             'controller' => SavedFiltersController::class,
+            'label_translator_strategy' => 'sonata.admin.label.strategy.underscore',
         ])
         ->args([
             service(SavedFiltersOwnerAccessorInterface::class),
