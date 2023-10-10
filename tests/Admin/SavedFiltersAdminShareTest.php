@@ -24,7 +24,7 @@ final class SavedFiltersAdminShareTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['public' => true]));
 
         // When
-        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/share");
+        self::$client->request('POST', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/share");
 
         // Then
         self::assertResponseRedirects();
@@ -43,7 +43,7 @@ final class SavedFiltersAdminShareTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['public' => true]));
 
         // When
-        self::$client->request('PUT', '/presta/sonata-saved-filters/saved-filters/1/share');
+        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/1/share');
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
@@ -61,7 +61,7 @@ final class SavedFiltersAdminShareTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count(['public' => true]));
 
         // When
-        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/share");
+        self::$client->request('POST', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/share");
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);

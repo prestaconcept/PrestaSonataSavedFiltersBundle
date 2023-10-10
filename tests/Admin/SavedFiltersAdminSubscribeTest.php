@@ -26,7 +26,7 @@ final class SavedFiltersAdminSubscribeTest extends AdminTestCase
         );
 
         // When
-        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/subscribe");
+        self::$client->request('POST', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/subscribe");
 
         // Then
         self::assertResponseRedirects();
@@ -51,7 +51,7 @@ final class SavedFiltersAdminSubscribeTest extends AdminTestCase
         );
 
         // When
-        self::$client->request('PUT', '/presta/sonata-saved-filters/saved-filters/1/subscribe');
+        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/1/subscribe');
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
@@ -71,7 +71,7 @@ final class SavedFiltersAdminSubscribeTest extends AdminTestCase
         self::$doctrine->flush();
 
         // When
-        self::$client->request('PUT', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/subscribe");
+        self::$client->request('POST', "/presta/sonata-saved-filters/saved-filters/{$filter->getId()}/subscribe");
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);

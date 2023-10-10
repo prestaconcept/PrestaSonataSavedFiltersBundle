@@ -65,27 +65,27 @@ final class SavedFiltersAdmin extends AbstractAdmin
         $collection->add(
             name: 'protect',
             pattern: "{$this->getRouterIdParameter()}/protect",
-            methods: [Request::METHOD_PUT],
+            methods: [Request::METHOD_POST],
         );
         $collection->add(
             name: 'unprotect',
             pattern: "{$this->getRouterIdParameter()}/unprotect",
-            methods: [Request::METHOD_PUT],
+            methods: [Request::METHOD_POST],
         );
         $collection->add(
             name: 'share',
             pattern: "{$this->getRouterIdParameter()}/share",
-            methods: [Request::METHOD_PUT],
+            methods: [Request::METHOD_POST],
         );
         $collection->add(
             name: 'subscribe',
             pattern: "{$this->getRouterIdParameter()}/subscribe",
-            methods: [Request::METHOD_PUT],
+            methods: [Request::METHOD_POST],
         );
         $collection->add(
             name: 'unsubscribe',
             pattern: "{$this->getRouterIdParameter()}/unsubscribe",
-            methods: [Request::METHOD_PUT],
+            methods: [Request::METHOD_POST],
         );
     }
 
