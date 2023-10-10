@@ -8,9 +8,9 @@ use Presta\SonataSavedFiltersBundle\Entity\SavedFilters;
 use Presta\SonataSavedFiltersBundle\Tests\App\User;
 use Symfony\Component\HttpFoundation\Response;
 
-final class SavedFiltersAdminCreateTest extends AdminTestCase
+final class SavedFiltersAdminNewTest extends AdminTestCase
 {
-    public function testCreate(): void
+    public function testNew(): void
     {
         // Given
         self::$doctrine->persist($admin = new User('admin'));
@@ -19,7 +19,7 @@ final class SavedFiltersAdminCreateTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count([]));
 
         // When
-        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/create', [
+        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/new', [
             'name' => 'My precious filter',
             'adminClass' => User::class,
             'filters' => 'filter%5Busername%5D%5Bvalue%5D=john',
@@ -31,7 +31,7 @@ final class SavedFiltersAdminCreateTest extends AdminTestCase
         self::assertSame(1, self::$doctrine->getRepository(SavedFilters::class)->count([]));
     }
 
-    public function testCreateInvalid(): void
+    public function testNewInvalid(): void
     {
         // Given
         self::$doctrine->persist($admin = new User('admin'));
@@ -40,7 +40,7 @@ final class SavedFiltersAdminCreateTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count([]));
 
         // When
-        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/create', [
+        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/new', [
             'name' => null,
             'adminClass' => null,
             'filters' => null,
@@ -52,13 +52,13 @@ final class SavedFiltersAdminCreateTest extends AdminTestCase
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count([]));
     }
 
-    public function testCreateNotAuthenticated(): void
+    public function testNewNotAuthenticated(): void
     {
         // Given
         self::assertSame(0, self::$doctrine->getRepository(SavedFilters::class)->count([]));
 
         // When
-        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/create');
+        self::$client->request('POST', '/presta/sonata-saved-filters/saved-filters/new');
 
         // Then
         self::assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);
