@@ -11,6 +11,7 @@ use Presta\SonataSavedFiltersBundle\Repository\SavedFiltersRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SavedFiltersRepository::class)]
+#[ORM\Table(name: 'presta_sonata_saved_filters')]
 class SavedFilters
 {
     #[ORM\Column(type: 'integer')]
@@ -45,6 +46,9 @@ class SavedFilters
      * @var Collection<int, SavedFiltersOwnerInterface>
      */
     #[ORM\ManyToMany(targetEntity: SavedFiltersOwnerInterface::class)]
+    #[ORM\JoinTable(name: 'presta_sonata_saved_filters_owners')]
+    #[ORM\JoinColumn(name: 'filters_id')]
+    #[ORM\InverseJoinColumn(name: 'owner_id')]
     private Collection $ownersWithAccess;
 
     public function __construct()
