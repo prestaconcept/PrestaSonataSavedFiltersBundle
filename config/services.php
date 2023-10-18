@@ -21,6 +21,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->set(SavedFiltersAdmin::class)
         ->tag('sonata.admin', [
             'manager_type' => 'orm',
+            'code' => 'presta_sonata_saved_filters.saved_filters',
             'label' => 'saved_filters.name',
             'model_class' => SavedFilters::class,
             'controller' => SavedFiltersController::class,
