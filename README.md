@@ -2,9 +2,7 @@
 
 PrestaSonataSavedFiltersBundle will allow your Sonata users to save and share list filters.
 
-<img src="doc/images/save-filter-form.png" alt="Save filter form" width="30%">  
-<img src="doc/images/saved-filters-dropdown.png" alt="Saved filters dropdown" width="30%">  
-<img src="doc/images/saved-filters-admin-list.png" alt="Saved filters admin list" width="30%">
+<img src="doc/images/save-filter-form.png" alt="Save filter form" width="30%"> <img src="doc/images/saved-filters-dropdown.png" alt="Saved filters dropdown" width="30%"> <img src="doc/images/saved-filters-admin-list.png" alt="Saved filters admin list" width="30%">
 
 ## Installation
 
