@@ -2,9 +2,16 @@
 
 PrestaSonataSavedFiltersBundle will allow your Sonata users to save and share list filters.
 
-![Save filter form](doc/images/save-filter-form.png)
-![Saved filters dropdown](doc/images/saved-filters-dropdown.png)
-![Save filter form](doc/images/saved-filters-admin-list.png)
+## Preview
+
+On each admin, you can save current filters to a dedicated database entry.
+<img src="doc/images/save-filter-form.png" alt="Save filter form" width="70%">
+
+When you saved a filter, you can reapply it whenever you from each admin.
+<img src="doc/images/saved-filters-dropdown.png" alt="Saved filters dropdown" width="70%">
+
+An admin exists where you can see, share use filters created in the application.
+<img src="doc/images/saved-filters-admin-list.png" alt="Saved filters admin list" width="70%">
 
 ## Installation
 
