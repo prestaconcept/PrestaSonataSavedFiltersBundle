@@ -64,6 +64,17 @@ doctrine:
 
 > See related DoctrineBundle [documentation](https://symfony.com/doc/current/doctrine/resolve_target_entity.html)
 
+Add the admin to the menu, where you want it:
+```yaml
+# config/packages/sonata_admin.yaml
+sonata_admin:
+    dashboard:
+        groups:
+          the_group_in_which_you_want_the_admin:
+                items:
+                    - presta_sonata_saved_filters.saved_filters
+```
+
 Finally, update your schema to create the tables required for our entities:
 ```console
 $ bin/console doctrine:schema:update 
@@ -74,3 +85,9 @@ $ bin/console doctrine:schema:update
 > $ bin/console doctrine:migrations:diff
 > $ bin/console doctrine:migrations:migrate
 > ```
+
+---
+
+*This project is supported by [PrestaConcept](https://www.prestaconcept.net)*
+
+Released under the [MIT License](LICENSE)
