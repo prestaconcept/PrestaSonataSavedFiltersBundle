@@ -17,9 +17,11 @@ class DatabaseTestHelper
         $database = $connection->getParams()['path'];
         if (file_exists($database)) {
             unlink($database);
+            touch($database);
+        } else {
+            $schema = $connection->createSchemaManager();
+            $schema->createDatabase($database);
         }
-        $schema = $connection->createSchemaManager();
-        $schema->createDatabase($database);
 
         (new SchemaTool($doctrine))
             ->createSchema($doctrine->getMetadataFactory()->getAllMetadata());
