@@ -11,18 +11,18 @@
   ],
   "require": {
     "php": "^8.1",
-    "doctrine/orm": "^2.7",
+    "doctrine/orm": "^2.7|^3.2",
     "sonata-project/doctrine-orm-admin-bundle": "^4.9",
     "sonata-project/admin-bundle": "^4.22",
-    "symfony/framework-bundle": "^6.3",
-    "symfony/validator": "^6.3",
+    "symfony/framework-bundle": "^6.3|^7.0",
+    "symfony/validator": "^6.3|^7.0",
     "twig/twig": "^3.5"
   },
   "require-dev": {
     "phpstan/phpstan": "^1.10",
     "phpunit/phpunit": "^9.5",
-    "symfony/browser-kit": "^6.3",
-    "symfony/css-selector": "^6.3",
+    "symfony/browser-kit": "^6.3|^7.0",
+    "symfony/css-selector": "^6.3|^7.0",
     "symplify/easy-coding-standard": "^11.3"
   },
   "autoload": {
