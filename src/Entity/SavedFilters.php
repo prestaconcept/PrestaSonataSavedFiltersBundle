@@ -36,10 +36,10 @@ class SavedFilters
     #[Assert\NotNull]
     private ?array $filters = null;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(type: 'boolean', name: 'is_public')]
     private bool $public = false;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(type: 'boolean', name: 'is_protected')]
     private bool $protected = false;
 
     /**
