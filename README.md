@@ -85,6 +85,7 @@ sonata_admin:
                 items:
                     - presta_sonata_saved_filters.saved_filters
 ```
+If you're using a security-layer, grant the roles `ROLE_PRESTA_SONATA_SAVED_FILTERS_SAVED_FILTERS_LIST` and/or `ROLE_PRESTA_SONATA_SAVED_FILTERS_SAVED_FILTERS_ALL` to the eligible users.
 
 Finally, update your schema to create the tables required for our entities:
 ```console
