@@ -42,6 +42,10 @@ final class SavedFiltersAdmin extends AbstractAdmin
             throw new UnexpectedTypeException($query, ProxyQuery::class);
         }
 
+        if (PHP_SAPI === 'cli') {
+            return $query;
+        }
+
         $rootAlias = current($query->getRootAliases());
 
         $query

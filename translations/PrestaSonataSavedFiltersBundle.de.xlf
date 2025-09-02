@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="zCQBwtq" resname="breadcrumb.link_saved_filters_list">
+        <source>breadcrumb.link_saved_filters_list</source>
+        <target>Gespeicherte Filter Liste</target>
+      </trans-unit>
+      <trans-unit id="pLY6sgd" resname="saved_filters.action.create">
+        <source>saved_filters.action.create</source>
+        <target>aktuelle Einstellung speichern</target>
+      </trans-unit>
+      <trans-unit id="bbrAlHv" resname="saved_filters.action.protect">
+        <source>saved_filters.action.protect</source>
+        <target>schützen</target>
+      </trans-unit>
+      <trans-unit id="zJ1P8ce" resname="saved_filters.action.share">
+        <source>saved_filters.action.share</source>
+        <target>öffentlich machen</target>
+      </trans-unit>
+      <trans-unit id="HnwRqr5" resname="saved_filters.action.subscribe">
+        <source>saved_filters.action.subscribe</source>
+        <target>zu Favoriten hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="z1Xy4vY" resname="saved_filters.action.unprotect">
+        <source>saved_filters.action.unprotect</source>
+        <target>Schutz entfernen</target>
+      </trans-unit>
+      <trans-unit id="p4Q6mXU" resname="saved_filters.action.unsubscribe">
+        <source>saved_filters.action.unsubscribe</source>
+        <target>aus Favoriten entfernen</target>
+      </trans-unit>
+      <trans-unit id="iBcR.zM" resname="saved_filters.breadcrumb.list">
+        <source>saved_filters.breadcrumb.list</source>
+        <target>Gespeicherte Filter</target>
+      </trans-unit>
+      <trans-unit id="138CmSV" resname="saved_filters.button.submit">
+        <source>saved_filters.button.submit</source>
+        <target>speichern</target>
+      </trans-unit>
+      <trans-unit id="SpSCa52" resname="saved_filters.field._action">
+        <source>saved_filters.field._action</source>
+        <target>Aktionen</target>
+      </trans-unit>
+      <trans-unit id="dmA47Gk" resname="saved_filters.field.admin_class">
+        <source>saved_filters.field.admin_class</source>
+        <target>Objekt</target>
+      </trans-unit>
+      <trans-unit id="0uB9kSa" resname="saved_filters.field.filters">
+        <source>saved_filters.field.filters</source>
+        <target>Filter</target>
+      </trans-unit>
+      <trans-unit id="Is88bWK" resname="saved_filters.field.name">
+        <source>saved_filters.field.name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="tjf6Ric" resname="saved_filters.field.protected">
+        <source>saved_filters.field.protected</source>
+        <target>geschützt</target>
+      </trans-unit>
+      <trans-unit id="K4S1nM0" resname="saved_filters.field.public">
+        <source>saved_filters.field.public</source>
+        <target>öffentlich</target>
+      </trans-unit>
+      <trans-unit id="EKSXwnh" resname="saved_filters.flash.deleted">
+        <source>saved_filters.flash.deleted</source>
+        <target>Der gespeicherte Filter wurde nicht mehr benutzt und daher entfernt.</target>
+      </trans-unit>
+      <trans-unit id="OfDm..W" resname="saved_filters.flash.protected">
+        <source>saved_filters.flash.protected</source>
+        <target>Der gespeicherte Filter ist jetzt geschützt.</target>
+      </trans-unit>
+      <trans-unit id="y9xScQ0" resname="saved_filters.flash.shared">
+        <source>saved_filters.flash.shared</source>
+        <target>Der gespeicherte Filter ist jetzt öffentlich.</target>
+      </trans-unit>
+      <trans-unit id="1BASZmp" resname="saved_filters.flash.subscribed">
+        <source>saved_filters.flash.subscribed</source>
+        <target>Der gespeicherte Filter wurde zu deinen Favoriten hinzugefügt.</target>
+      </trans-unit>
+      <trans-unit id="_v5LsAO" resname="saved_filters.flash.unprotected">
+        <source>saved_filters.flash.unprotected</source>
+        <target>Der gespeicherte Filter ist jetzt ungeschützt.</target>
+      </trans-unit>
+      <trans-unit id="YRj_5C0" resname="saved_filters.flash.unsubscribed">
+        <source>saved_filters.flash.unsubscribed</source>
+        <target>Der gespeicherte Filter wurde aus deinen Favoriten entfernt.</target>
+      </trans-unit>
+      <trans-unit id="kvwv.qV" resname="saved_filters.name">
+        <source>saved_filters.name</source>
+        <target>Gespeicherte Filter</target>
+      </trans-unit>
+      <trans-unit id="1Fxr2K9" resname="breadcrumb.link_saved_filters_create">
+        <source>breadcrumb.link_saved_filters_create</source>
+        <target>Filter erstellen</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
