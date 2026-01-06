@@ -88,7 +88,6 @@ final class Kernel extends BaseKernel
                 'logging' => false,
             ],
             'orm' => [
-                'auto_generate_proxy_classes' => true,
                 'naming_strategy' => 'doctrine.orm.naming_strategy.underscore',
                 'mappings' => [
                     'PrestaSonataSavedFiltersBundle' => [
