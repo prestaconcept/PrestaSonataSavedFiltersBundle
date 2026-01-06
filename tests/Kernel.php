@@ -88,7 +88,6 @@ final class Kernel extends BaseKernel
                 'logging' => false,
             ],
             'orm' => [
-                'auto_generate_proxy_classes' => true,
                 'naming_strategy' => 'doctrine.orm.naming_strategy.underscore',
                 'mappings' => [
                     'PrestaSonataSavedFiltersBundle' => [
@@ -123,7 +122,7 @@ final class Kernel extends BaseKernel
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import('@SonataAdminBundle/Resources/config/routing/sonata_admin.xml');
+        $routes->import('@SonataAdminBundle/Resources/config/routing/sonata_admin.php');
         $routes->import('.', 'sonata_admin');
     }
 }
