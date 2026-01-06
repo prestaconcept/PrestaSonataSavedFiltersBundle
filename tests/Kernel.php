@@ -122,7 +122,7 @@ final class Kernel extends BaseKernel
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import('@SonataAdminBundle/Resources/config/routing/sonata_admin.xml');
+        $routes->import('@SonataAdminBundle/Resources/config/routing/sonata_admin.php');
         $routes->import('.', 'sonata_admin');
     }
 }
