@@ -79,11 +79,7 @@ final class Kernel extends BaseKernel
                     'pattern' => '^/',
                     'provider' => 'user',
                     'http_basic' => ['realm' => 'Secured Area'],
-                    'stateless' => true,
                 ],
-            ],
-            'access_control' => [
-                ['path' => '^/presta/sonata-saved-filters', 'roles' => 'IS_AUTHENTICATED_FULLY'],
             ],
         ]);
         $ormConfig = [
