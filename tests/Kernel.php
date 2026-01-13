@@ -79,37 +79,44 @@ final class Kernel extends BaseKernel
                     'pattern' => '^/',
                     'provider' => 'user',
                     'http_basic' => ['realm' => 'Secured Area'],
+                    'stateless' => true,
                 ],
             ],
+            'access_control' => [
+                ['path' => '^/presta/sonata-saved-filters', 'roles' => 'IS_AUTHENTICATED_FULLY'],
+            ],
         ]);
+        $ormConfig = [
+            'naming_strategy' => 'doctrine.orm.naming_strategy.underscore',
+            'mappings' => [
+                'PrestaSonataSavedFiltersBundle' => [
+                    'is_bundle' => true,
+                    'type' => 'attribute',
+                    'dir' => 'src/Entity',
+                    'prefix' => 'Presta\\SonataSavedFiltersBundle\\Entity',
+                    'alias' => 'PrestaSonataSavedFiltersBundle',
+                ],
+                'Tests' => [
+                    'is_bundle' => false,
+                    'type' => 'attribute',
+                    'dir' => 'tests/App',
+                    'prefix' => 'Presta\\SonataSavedFiltersBundle\\Tests\\App',
+                    'alias' => 'Tests',
+                ],
+            ],
+            'resolve_target_entities' => [
+                SavedFiltersOwnerInterface::class => User::class,
+            ],
+        ];
+        if (\PHP_VERSION_ID < 80400) {
+            $ormConfig['auto_generate_proxy_classes'] = true;
+        }
         $container->extension('doctrine', [
             'dbal' => [
                 'url' => 'sqlite:///%kernel.project_dir%/var/database.sqlite',
                 'logging' => false,
             ],
-            'orm' => [
-                'auto_generate_proxy_classes' => true,
-                'naming_strategy' => 'doctrine.orm.naming_strategy.underscore',
-                'mappings' => [
-                    'PrestaSonataSavedFiltersBundle' => [
-                        'is_bundle' => true,
-                        'type' => 'attribute',
-                        'dir' => 'src/Entity',
-                        'prefix' => 'Presta\\SonataSavedFiltersBundle\\Entity',
-                        'alias' => 'PrestaSonataSavedFiltersBundle',
-                    ],
-                    'Tests' => [
-                        'is_bundle' => false,
-                        'type' => 'attribute',
-                        'dir' => 'tests/App',
-                        'prefix' => 'Presta\\SonataSavedFiltersBundle\\Tests\\App',
-                        'alias' => 'Tests',
-                    ],
-                ],
-                'resolve_target_entities' => [
-                    SavedFiltersOwnerInterface::class => User::class,
-                ],
-            ],
+            'orm' => $ormConfig,
         ]);
         $container->extension('twig', [
             'default_path' => __DIR__ . '/App/templates',

@@ -22,7 +22,8 @@ final class AuthenticatedUserSavedFiltersOwnerAccessor implements SavedFiltersOw
             // In CLI, there is no authenticated user.
             if (PHP_SAPI === 'cli') {
                 // Return a dummy object that satisfies the interface to prevent commands from crashing.
-                return new class implements SavedFiltersOwnerInterface {};
+                return new class() implements SavedFiltersOwnerInterface {
+                };
             }
 
             throw new CannotAccessSavedFiltersOwnerException('Missing authenticated user.');
