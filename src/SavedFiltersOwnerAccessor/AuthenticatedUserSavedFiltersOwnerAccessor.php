@@ -17,9 +17,17 @@ final class AuthenticatedUserSavedFiltersOwnerAccessor implements SavedFiltersOw
     public function get(): SavedFiltersOwnerInterface
     {
         $user = $this->tokenStorage->getToken()?->getUser();
-        if ($user === null) {
+
+        if (null === $user) {
+            // In CLI, there is no authenticated user.
+            if (PHP_SAPI === 'cli') {
+                // Return a dummy object that satisfies the interface to prevent commands from crashing.
+                return new class implements SavedFiltersOwnerInterface {};
+            }
+
             throw new CannotAccessSavedFiltersOwnerException('Missing authenticated user.');
         }
+
         if (!$user instanceof SavedFiltersOwnerInterface) {
             throw new CannotAccessSavedFiltersOwnerException(
                 \sprintf('Authenticated user %s does not implements %s', $user::class, SavedFiltersOwnerInterface::class),
