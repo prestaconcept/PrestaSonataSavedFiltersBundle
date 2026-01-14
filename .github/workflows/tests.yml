@@ -19,9 +19,9 @@ jobs:
           - php-version: "8.4"
             symfony-version: "6.4.*"
           - php-version: "8.2"
-            symfony-version: "7.1.*"
+            symfony-version: "7.4.*"
           - php-version: "8.4"
-            symfony-version: "7.3.*"
+            symfony-version: "7.4.*"
 
     steps:
       - name: "Checkout"
@@ -38,7 +38,11 @@ jobs:
           composer require --no-interaction --no-update \
             symfony/framework-bundle:${{ matrix.symfony-version }} \
             symfony/validator:${{ matrix.symfony-version }} \
-            symfony/http-kernel:${{ matrix.symfony-version }}
+            symfony/http-kernel:${{ matrix.symfony-version }} \
+            symfony/serializer:${{ matrix.symfony-version }} \
+            symfony/property-info:${{ matrix.symfony-version }} \
+            symfony/console:${{ matrix.symfony-version }} \
+            symfony/routing:${{ matrix.symfony-version }}
           composer update --no-interaction --no-progress
 
       - name: "Run tests with phpunit/phpunit"
@@ -52,7 +56,7 @@ jobs:
       matrix:
         include:
           - php-version: "8.4"
-            symfony-version: "7.3.*"
+            symfony-version: "7.4.*"
 
     steps:
       - name: "Checkout"
@@ -69,7 +73,11 @@ jobs:
           composer require --no-interaction --no-update \
             symfony/framework-bundle:${{ matrix.symfony-version }} \
             symfony/validator:${{ matrix.symfony-version }} \
-            symfony/http-kernel:${{ matrix.symfony-version }}
+            symfony/http-kernel:${{ matrix.symfony-version }} \
+            symfony/serializer:${{ matrix.symfony-version }} \
+            symfony/property-info:${{ matrix.symfony-version }} \
+            symfony/console:${{ matrix.symfony-version }} \
+            symfony/routing:${{ matrix.symfony-version }}
           composer update --no-interaction --no-progress
 
       - name: "Run tests with phpunit/phpunit"
@@ -89,7 +97,7 @@ jobs:
       matrix:
         include:
           - php-version: "8.4"
-            symfony-version: "7.3.*"
+            symfony-version: "7.4.*"
 
     steps:
       - name: "Checkout"
@@ -106,7 +114,11 @@ jobs:
           composer require --no-interaction --no-update \
             symfony/framework-bundle:${{ matrix.symfony-version }} \
             symfony/validator:${{ matrix.symfony-version }} \
-            symfony/http-kernel:${{ matrix.symfony-version }}
+            symfony/http-kernel:${{ matrix.symfony-version }} \
+            symfony/serializer:${{ matrix.symfony-version }} \
+            symfony/property-info:${{ matrix.symfony-version }} \
+            symfony/console:${{ matrix.symfony-version }} \
+            symfony/routing:${{ matrix.symfony-version }}
           composer update --no-interaction --no-progress
 
       - name: "Run static analysis with phpstan/phpstan"
@@ -120,7 +132,7 @@ jobs:
       matrix:
         include:
           - php-version: "8.4"
-            symfony-version: "7.3.*"
+            symfony-version: "7.4.*"
 
     steps:
       - name: "Checkout"
@@ -137,7 +149,11 @@ jobs:
           composer require --no-interaction --no-update \
             symfony/framework-bundle:${{ matrix.symfony-version }} \
             symfony/validator:${{ matrix.symfony-version }} \
-            symfony/http-kernel:${{ matrix.symfony-version }}
+            symfony/http-kernel:${{ matrix.symfony-version }} \
+            symfony/serializer:${{ matrix.symfony-version }} \
+            symfony/property-info:${{ matrix.symfony-version }} \
+            symfony/console:${{ matrix.symfony-version }} \
+            symfony/routing:${{ matrix.symfony-version }}
           composer update --no-interaction --no-progress
 
       - name: "Run checkstyle with symplify/easy-coding-standard"
