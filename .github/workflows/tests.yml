@@ -22,6 +22,8 @@ jobs:
             symfony-version: "7.4.*"
           - php-version: "8.4"
             symfony-version: "7.4.*"
+          - php-version: "8.4"
+            symfony-version: "8.0.*"
 
     steps:
       - name: "Checkout"
@@ -43,6 +45,8 @@ jobs:
             symfony/property-info:${{ matrix.symfony-version }} \
             symfony/console:${{ matrix.symfony-version }} \
             symfony/routing:${{ matrix.symfony-version }}
+          composer require --no-interaction --no-update --dev \
+            symfony/browser-kit:${{ matrix.symfony-version }}
           composer update --no-interaction --no-progress
 
       - name: "Run tests with phpunit/phpunit"
@@ -56,7 +60,7 @@ jobs:
       matrix:
         include:
           - php-version: "8.4"
-            symfony-version: "7.4.*"
+            symfony-version: "8.0.*"
 
     steps:
       - name: "Checkout"
@@ -78,6 +82,8 @@ jobs:
             symfony/property-info:${{ matrix.symfony-version }} \
             symfony/console:${{ matrix.symfony-version }} \
             symfony/routing:${{ matrix.symfony-version }}
+          composer require --no-interaction --no-update --dev \
+            symfony/browser-kit:${{ matrix.symfony-version }}
           composer update --no-interaction --no-progress
 
       - name: "Run tests with phpunit/phpunit"
@@ -97,7 +103,7 @@ jobs:
       matrix:
         include:
           - php-version: "8.4"
-            symfony-version: "7.4.*"
+            symfony-version: "8.0.*"
 
     steps:
       - name: "Checkout"
@@ -119,6 +125,8 @@ jobs:
             symfony/property-info:${{ matrix.symfony-version }} \
             symfony/console:${{ matrix.symfony-version }} \
             symfony/routing:${{ matrix.symfony-version }}
+          composer require --no-interaction --no-update --dev \
+            symfony/browser-kit:${{ matrix.symfony-version }}
           composer update --no-interaction --no-progress
 
       - name: "Run static analysis with phpstan/phpstan"
@@ -132,7 +140,7 @@ jobs:
       matrix:
         include:
           - php-version: "8.4"
-            symfony-version: "7.4.*"
+            symfony-version: "8.0.*"
 
     steps:
       - name: "Checkout"
@@ -154,6 +162,8 @@ jobs:
             symfony/property-info:${{ matrix.symfony-version }} \
             symfony/console:${{ matrix.symfony-version }} \
             symfony/routing:${{ matrix.symfony-version }}
+          composer require --no-interaction --no-update --dev \
+            symfony/browser-kit:${{ matrix.symfony-version }}
           composer update --no-interaction --no-progress
 
       - name: "Run checkstyle with symplify/easy-coding-standard"
